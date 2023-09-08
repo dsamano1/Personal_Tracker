@@ -24,6 +24,7 @@ public class main {
 		
 		scan.close();
 		System.out.println(list.get(1));
+		System.out.println("testing this");
 	}
 	
 	public static void exportData(String filePath)
