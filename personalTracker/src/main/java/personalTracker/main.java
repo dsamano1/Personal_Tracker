@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.opencsv.CSVWriter;
@@ -13,18 +14,18 @@ import com.opencsv.CSVWriter;
 public class main {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		ArrayList <String> list = new ArrayList<String>();
+		ArrayList <String> dList = new ArrayList<String>();
 		String path = "data.csv";
 		exportData(path);
 		Scanner scan = new Scanner(new FileReader(path));
 		scan.useDelimiter(",");
 		while (scan.hasNextLine()) {
-			list.add(scan.nextLine());
+			dList.add(scan.nextLine());
 		}
-		
 		scan.close();
-		System.out.println(list.get(3));
-		System.out.println("testing this");
+		System.out.println(dList.get(0));
+		String x = dList.get(0);
+		System.out.println(x);
 	}
 	
 	public static void exportData(String filePath)
@@ -39,17 +40,9 @@ public class main {
 			// create CSVWriter object filewriter object as parameter
 			CSVWriter writer = new CSVWriter(outputfile);
 
-			// adding header to csv
-			String[] header = { "Name", "Class", "Marks" };
-			writer.writeNext(header);
-
-			// add data to csv
-			String[] data1 = { "Damian", "1", "99" };
-			writer.writeNext(data1);
-			String[] data2 = { "Marlen", "1", "100" };
-			writer.writeNext(data2);
-			String[] data3 = { "Jason", "1", "101"};
-			writer.writeNext(data3);
+			ArrayList<String[]> data = new ArrayList<String[]>();
+	        data.add(new String[] { "Name", "Date", "Calories","Carbs","Protein", "Fats"});
+	        writer.writeAll(data);
 			// closing writer connection
 			writer.close();
 		}
