@@ -23,7 +23,7 @@ public class main {
 		}
 		
 		scan.close();
-		System.out.println(list.get(1));
+		System.out.println(list.get(3));
 		System.out.println("testing this");
 	}
 	
@@ -48,7 +48,8 @@ public class main {
 			writer.writeNext(data1);
 			String[] data2 = { "Marlen", "1", "100" };
 			writer.writeNext(data2);
-
+			String[] data3 = { "Jason", "1", "101"};
+			writer.writeNext(data3);
 			// closing writer connection
 			writer.close();
 		}
